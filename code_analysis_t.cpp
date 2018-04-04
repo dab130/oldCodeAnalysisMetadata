@@ -21,9 +21,9 @@ int main() {
         request.given_filename  = "";
         request.entry_filename  = "";
         request.given_url       = "";
-        request.option_filename = "";
+        request.option_filename = "test.cpp";
         request.option_url      = "";
-        request.option_language = "c++";
+        request.option_language = "cdds";
 		
 	
 
@@ -37,7 +37,7 @@ int main() {
 			Testing the following rules:
 				4. The url is the given_url for a directory and a URL. There is an option_url, which takes precedence.
 		*/
-		std::cout << "analysis_url: " << analysis_url(request) << std::endl; 
+		//std::cout << "analysis_url: " << analysis_url(request) << std::endl; 
 		
 		/*This test case is for ANALYSIS_FILENAME
 			Testing the following rules:
@@ -56,10 +56,15 @@ int main() {
 			Testing the following rules:
 			5. The language can be explicitly given as an option (option_language) and this supersedes all other language settings
 		*/
-		std::cout << "analysis_language: " << analysis_language(request, filename) << std::endl;
+		//std::cout << "analysis_language: " << analysis_language(request, filename) << std::endl;
 		
-		/*This is the test case for code_analysis*/
-		//code_analysis(request);
+		/*This is the test case for code_analysis
+			Testing the following Error Handling:
+				If the file extension is used to determine the language, and there is no mapping for that language, output the error message “Extension not supported”
+				When the input is from standard input and a language cannot be determined, output the error message “Using stdin requires a declared language”
+				All error messages are written to standard error (i.e., std::cerr), and the function should return a false boolean value.
+		*/
+		code_analysis(request);
 		}
 
     return 0;

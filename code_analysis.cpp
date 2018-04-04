@@ -19,17 +19,17 @@
 bool code_analysis(const analysis_request& request){ // Error handling happens here...
 	
 	auto filename = analysis_filename(request);
-		
+
     auto url = analysis_url(request);
 
     auto language = analysis_language(request, filename);
 		
-		if(request.option_filename != "" && language == "" ){
-			std:: cout << "Using stdin requires a declared language" << std:: endl;
+		if(filename != "" && language == "" ){
+			std:: cout << "Extension not supported " << std:: endl;
 			return false;
 		}
 		if(language == ""){
-			std::cout << "Extension not supported" << std::endl;
+			std::cout << "Using stdin requires a declared language" << std::endl;
 			return false;
 		}
 
@@ -43,7 +43,7 @@ bool code_analysis(const analysis_request& request){ // Error handling happens h
  * @retval filename
  */
 std::string analysis_filename(const analysis_request& request) {
-	if(request.option_filename != "" ){
+	if(request.option_filename != ""){
 		return request.option_filename; 				// if there is a stdin value return it.
 		
 	}else if(request.entry_filename == "data"){
@@ -76,8 +76,9 @@ std::string analysis_url(const analysis_request& request) {
  */
 std::string analysis_language(const analysis_request& request, const std::string& filename) {
 	if(request.option_language != ""){
-		return request.option_language;
-	}else{
+		
+			return request.option_language;
+	}if(request.option_filename != ""){
 		return get_language_from_filename(filename);
 	}
 	return ""; /// 228
