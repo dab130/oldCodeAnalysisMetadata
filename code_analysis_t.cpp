@@ -19,9 +19,9 @@ int main() {
 		
         analysis_request request;
         request.given_filename  = "";
-        request.entry_filename  = "";
+        request.entry_filename  = "test.cpp";
         request.given_url       = "";
-        request.option_filename = "test.csdfsp";
+        request.option_filename = "";
         request.option_url      = "";
         request.option_language = "";
 		
@@ -33,20 +33,29 @@ int main() {
         //assert(analysis_language(request, filename) == "");
         //assert(code_analysis(request) == false);
 		
-		/* Test case for analysis_url. When given data from the struct it will choose precedence.
+		/* Test case for ANALYSIS.URL. When given data from the struct it will choose precedence.
 			This will Still fail the assertion no error handling yet...
 		*/
 		//std::cout << "analysis_url: " << analysis_url(request) << std::endl; 
 		
-		/*This test case is for analysis_filename
+		/*This test case is for ANALYSIS_FILENAME
+			Testing the following rules:
+				1. Option_filename supersedes any other way
+				2. Given_filename is the name on the disk, for a source-code archive the entry_filename is used instead.
+				3. Entry_filename = "data" then use given_filename
+				7. The given_filename is a single dash “-” when the input is from standard input. In this case, the option_filename 
+				and entry_filename must be used. Note that the entry_filename is not valid (i.e, “data”) for a non source code archive, 
+				and the option_filename must be used. If the option_filename is blank (i.e., “”), then the resulting filename is blank, 
+				and the language is based on the option_language.
 		*/
-		//std::cout << "analysis_filename: " << analysis_filename(request) << std::endl;
+		std::cout << "analysis_filename: " << analysis_filename(request) << std::endl;
 		
-		/*This is the test case for analysis_language*/
+		
+		/*This is the test case for ANALYSIS_LANGUAGE*/
 		//std::cout << "analysis_language: " << analysis_language(request, filename) << std::endl;
 		
 		/*This is the test case for code_analysis*/
-		code_analysis(request);
+		//code_analysis(request);
 		}
 
     return 0;
