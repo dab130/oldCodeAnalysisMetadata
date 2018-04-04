@@ -22,7 +22,7 @@ int main() {
         request.entry_filename  = "";
         request.given_url       = "given url";
         request.option_filename = "";
-        request.option_url      = "option url";
+        request.option_url      = "";
         request.option_language = "";
 		
 	
