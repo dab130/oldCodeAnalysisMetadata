@@ -18,19 +18,19 @@ int main() {
 		
 		
         analysis_request request;
-        request.given_filename  = "testing";
-        request.entry_filename  = "data";
+        request.given_filename  = "";
+        request.entry_filename  = "";
         request.given_url       = "";
         request.option_filename = "";
         request.option_url      = "";
-        request.option_language = "";
+        request.option_language = ".cpp";
 		
 	
 
         auto filename = analysis_filename(request);
-        //assert(filename == "");
+        assert(filename == "");
         assert(analysis_url(request) == "");
-        assert(analysis_language(request, filename) == "");
+        //assert(analysis_language(request, filename) == "");
         assert(code_analysis(request) == false);
 		
 		/* Test case for analysis_url. When given data from the struct it will choose precedence.
