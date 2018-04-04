@@ -66,7 +66,6 @@ std::string analysis_url(const analysis_request& request) {
 	}else if(request.given_url != ""){
 		return request.given_url;
 	}
-	
 	return "";
 }
 

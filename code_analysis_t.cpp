@@ -19,10 +19,10 @@ int main() {
 		
         analysis_request request;
         request.given_filename  = "";
-        request.entry_filename  = "test.cpp";
-        request.given_url       = "";
+        request.entry_filename  = "";
+        request.given_url       = "blah blah.com";
         request.option_filename = "";
-        request.option_url      = "";
+        request.option_url      = "more on the blah.com";
         request.option_language = "";
 		
 	
@@ -33,10 +33,11 @@ int main() {
         //assert(analysis_language(request, filename) == "");
         //assert(code_analysis(request) == false);
 		
-		/* Test case for ANALYSIS.URL. When given data from the struct it will choose precedence.
-			This will Still fail the assertion no error handling yet...
+		/* Test case for ANALYSIS.URL. 
+			Testing the following rules:
+				4. The url is the given_url for a directory and a URL. There is an option_url, which takes precedence.
 		*/
-		//std::cout << "analysis_url: " << analysis_url(request) << std::endl; 
+		std::cout << "analysis_url: " << analysis_url(request) << std::endl; 
 		
 		/*This test case is for ANALYSIS_FILENAME
 			Testing the following rules:
@@ -48,7 +49,7 @@ int main() {
 				and the option_filename must be used. If the option_filename is blank (i.e., “”), then the resulting filename is blank, 
 				and the language is based on the option_language.
 		*/
-		std::cout << "analysis_filename: " << analysis_filename(request) << std::endl;
+		//std::cout << "analysis_filename: " << analysis_filename(request) << std::endl;
 		
 		
 		/*This is the test case for ANALYSIS_LANGUAGE*/
