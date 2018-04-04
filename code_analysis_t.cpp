@@ -20,10 +20,10 @@ int main() {
         analysis_request request;
         request.given_filename  = "";
         request.entry_filename  = "";
-        request.given_url       = "blah blah.com";
+        request.given_url       = "";
         request.option_filename = "";
-        request.option_url      = "more on the blah.com";
-        request.option_language = "";
+        request.option_url      = "";
+        request.option_language = "c++";
 		
 	
 
@@ -33,7 +33,7 @@ int main() {
         //assert(analysis_language(request, filename) == "");
         //assert(code_analysis(request) == false);
 		
-		/* Test case for ANALYSIS.URL. 
+		/* Test case for ANALYSIS_URL. 
 			Testing the following rules:
 				4. The url is the given_url for a directory and a URL. There is an option_url, which takes precedence.
 		*/
@@ -52,8 +52,11 @@ int main() {
 		//std::cout << "analysis_filename: " << analysis_filename(request) << std::endl;
 		
 		
-		/*This is the test case for ANALYSIS_LANGUAGE*/
-		//std::cout << "analysis_language: " << analysis_language(request, filename) << std::endl;
+		/*This is the test case for ANALYSIS_LANGUAGE
+			Testing the following rules:
+			5. The language can be explicitly given as an option (option_language) and this supersedes all other language settings
+		*/
+		std::cout << "analysis_language: " << analysis_language(request, filename) << std::endl;
 		
 		/*This is the test case for code_analysis*/
 		//code_analysis(request);
