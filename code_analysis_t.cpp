@@ -18,8 +18,8 @@ int main() {
 		
 		
         analysis_request request;
-        request.given_filename  = "";
-        request.entry_filename  = "";
+        request.given_filename  = "testing";
+        request.entry_filename  = "data";
         request.given_url       = "";
         request.option_filename = "";
         request.option_url      = "";

@@ -36,6 +36,8 @@ bool code_analysis(const analysis_request& request){ // Error handling happens h
 std::string analysis_filename(const analysis_request& request) {
 		if(request.option_filename != ""){
 			return request.option_filename;
+		}else if(request.entry_filename == "data"){
+			return request.given_filename;
 		}
 	return "";
 }
