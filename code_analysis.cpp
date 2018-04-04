@@ -8,23 +8,25 @@
 #include "get_language_from_filename.hpp"
 
 #include <string>
+#include <iostream>
+
 
 /** Generate source analysis based on the request
  * @param request Data that forms the request
  * @retval true   Valid request
  * @retval false  Invalid filename or unable to deduce language
  */
-bool code_analysis(const analysis_request& request) {
-
-    auto filename = analysis_filename(request);
+bool code_analysis(const analysis_request& request){ // Error handling happens here...
+	
+	auto filename = analysis_filename(request);
 
     auto url = analysis_url(request);
 
     auto language = analysis_language(request, filename);
 
     // code analysis processing that is not yet implemented
-
-    return false;
+	
+	return false;
 }
 
 /** Filename extracted from the request
@@ -32,8 +34,10 @@ bool code_analysis(const analysis_request& request) {
  * @retval filename
  */
 std::string analysis_filename(const analysis_request& request) {
-
-    return "";
+		if(request.option_filename != ""){
+			return request.option_filename;
+		}
+	return "";
 }
 
 /** URL extracted from the request
@@ -41,8 +45,10 @@ std::string analysis_filename(const analysis_request& request) {
  * @retval URL
  */
 std::string analysis_url(const analysis_request& request) {
-
-    return "";
+	if(request.given_url != ""){
+		return request.option_url;
+	}
+	return request.given_url;
 }
 
 /** Language extracted from the request and the filename
@@ -52,5 +58,7 @@ std::string analysis_url(const analysis_request& request) {
  */
 std::string analysis_language(const analysis_request& request, const std::string& filename) {
 
-    return "";
+
+
+    return ""; /// 228
 }
