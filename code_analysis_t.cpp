@@ -40,8 +40,11 @@ int main() {
 		
 		/*This test case is for analysis_filename
 		*/
-		std::cout << "analysis_filename: " << analysis_filename(request) << std::endl;
+		//std::cout << "analysis_filename: " << analysis_filename(request) << std::endl;
 		
+		/*This is the test case for analysis_language*/
+		
+		std::cout << "analysis_language: " << analysis_language(request, filename) << std::endl;
 		}
 
     return 0;
