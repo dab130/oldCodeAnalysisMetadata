@@ -40,6 +40,26 @@ int main() {
         request.option_url      = "www.google.com";
         request.option_language = "";
 		
+		assert(filename == "");
+        assert(analysis_url(request) == "www.google.com");
+        assert(analysis_language(request, filename) == "");
+        assert(code_analysis(request) == false);
+		
+		//Test case: analysis_language
+		//The language can be explicitly given as an option (option_language) and this supersedes all other language settings
+		request.given_filename  = "";
+        request.entry_filename  = "";
+        request.given_url       = "";
+        request.option_filename = "";
+        request.option_url      = "";
+        request.option_language = "c++";
+		
+		assert(filename == "");
+        assert(analysis_url(request) == "");
+        assert(analysis_language(request, filename) == "c++");
+        assert(code_analysis(request) == false);
+		
+		
 		}
 
     return 0;
