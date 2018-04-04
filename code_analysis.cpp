@@ -65,7 +65,7 @@ std::string analysis_language(const analysis_request& request, const std::string
 	if(request.option_language != ""){
 		return request.option_language;
 	}else{
-		get_language_from_filename(filename);
+		return get_language_from_filename(filename);
 	}
     return ""; /// 228
 }
