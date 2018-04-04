@@ -18,10 +18,10 @@ int main() {
 		
 		
         analysis_request request;
-        request.given_filename  = "test.cpp";
-        request.entry_filename  = "data";
+        request.given_filename  = "";
+        request.entry_filename  = "";
         request.given_url       = "";
-        request.option_filename = "";
+        request.option_filename = "test.csdfsp";
         request.option_url      = "";
         request.option_language = "";
 		
@@ -29,9 +29,9 @@ int main() {
 
         auto filename = analysis_filename(request);
         //assert(filename == "");
-        assert(analysis_url(request) == "");
+        //assert(analysis_url(request) == "");
         //assert(analysis_language(request, filename) == "");
-        assert(code_analysis(request) == false);
+        //assert(code_analysis(request) == false);
 		
 		/* Test case for analysis_url. When given data from the struct it will choose precedence.
 			This will Still fail the assertion no error handling yet...
@@ -43,8 +43,10 @@ int main() {
 		//std::cout << "analysis_filename: " << analysis_filename(request) << std::endl;
 		
 		/*This is the test case for analysis_language*/
+		//std::cout << "analysis_language: " << analysis_language(request, filename) << std::endl;
 		
-		std::cout << "analysis_language: " << analysis_language(request, filename) << std::endl;
+		/*This is the test case for code_analysis*/
+		code_analysis(request);
 		}
 
     return 0;
