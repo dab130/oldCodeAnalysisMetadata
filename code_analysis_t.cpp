@@ -28,7 +28,7 @@ int main() {
 	
 
         auto filename = analysis_filename(request);
-        assert(filename == "");
+        //assert(filename == "");
         assert(analysis_url(request) == "");
         assert(analysis_language(request, filename) == "");
         assert(code_analysis(request) == false);
@@ -36,7 +36,11 @@ int main() {
 		/* Test case for analysis_url. When given data from the struct it will choose precedence.
 			This will Still fail the assertion no error handling yet...
 		*/
-		std::cout << "analysis_url: " << analysis_url(request) << std::endl; 
+		//std::cout << "analysis_url: " << analysis_url(request) << std::endl; 
+		
+		/*This test case is for analysis_filename
+		*/
+		std::cout << "analysis_filename: " << analysis_filename(request) << std::endl;
 		
 		}
 
