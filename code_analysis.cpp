@@ -80,5 +80,5 @@ std::string analysis_language(const analysis_request& request, const std::string
 	}if(request.option_filename != ""){
 		return get_language_from_filename(filename);
 	}
-	return ""; /// 228
+	return ""; 
 }

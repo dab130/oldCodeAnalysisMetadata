@@ -59,6 +59,7 @@ int main() {
         assert(analysis_language(request, filename) == "c++");
         assert(code_analysis(request) == false);
 		
+		//Test case: analysis_language
 		//The language is based on the file extension. The completed, provided function, get_language_from_filename(), is used for this.
 		//This is a pass test case that will return 
 		request.given_filename  = "";
@@ -67,6 +68,11 @@ int main() {
         request.option_filename = "test.cpp";
         request.option_url      = "";
         request.option_language = "";
+		
+		filename = analysis_filename(request);
+        assert(analysis_url(request) == "");
+        assert(analysis_language(request, filename) == "C++");
+        assert(code_analysis(request) == false);
 		}
 
     return 0;
