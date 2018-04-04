@@ -47,8 +47,11 @@ std::string analysis_filename(const analysis_request& request) {
 std::string analysis_url(const analysis_request& request) {
 	if(request.option_url != ""){
 		return request.option_url;
-	}else
-	return request.given_url;
+	}else if(request.given_url != ""){
+		return request.given_url;
+	}
+	
+	return "";
 }
 
 /** Language extracted from the request and the filename
