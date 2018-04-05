@@ -24,11 +24,11 @@ bool code_analysis(const analysis_request& request){ // Error handling happens h
 
     auto language = analysis_language(request, filename);
 		
-		if(filename != "" && language == "" ){
+		if(filename != "" && language == ""){
 			std::cerr << "Extension not supported " << std:: endl;
 			return false;
 		}
-		if(language == ""){
+		if(request.option_filename != "" && language == ""){
 			std::cerr << "Using stdin requires a declared language" << std::endl;
 			return false;
 		}
