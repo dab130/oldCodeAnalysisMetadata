@@ -54,10 +54,11 @@ int main() {
 	{	
 		// Test case: analysis_url
 		// The url is the given_url for a directory and a URL. There is an option_url, which takes precedence.
+		//This will return www.google.com over www.github.com
 		analysis_request request;
 		request.given_filename  = "";
         request.entry_filename  = "";
-        request.given_url       = "";
+        request.given_url       = "www.github.com";
         request.option_filename = "";
         request.option_url      = "www.google.com";
         request.option_language = "";
@@ -72,15 +73,15 @@ int main() {
 		// Test case: analysis_language
 		// The language can be explicitly given as an option (option_language) and this supersedes all other language settings
 		analysis_request request;
-		request.given_filename  = "";
-        request.entry_filename  = "";
+		request.given_filename  = "testing.java";
+        request.entry_filename  = "tester.aj";
         request.given_url       = "";
-        request.option_filename = "";
+        request.option_filename = "tested.cs";
         request.option_url      = "";
         request.option_language = "c++";
 		
 		auto filename = analysis_filename(request);
-		assert(filename == "");
+		assert(filename == "tested.cs");
         assert(analysis_url(request) == "");
         assert(analysis_language(request, filename) == "c++");
         assert(code_analysis(request) == false);
@@ -108,16 +109,16 @@ int main() {
 		//The given_filename is the name of the file on the disk. For a source-code archive the entry_filename is used instead.		
         analysis_request request;
         request.given_filename  = "test.cpp";
-        request.entry_filename  = "";
+        request.entry_filename  = "tester.aj";
         request.given_url       = "";
         request.option_filename = "";
         request.option_url      = "";
         request.option_language = "";
 		
         auto filename = analysis_filename(request);
-        assert(filename == "test.cpp");
+        assert(filename == "tester.aj");
         assert(analysis_url(request) == "");
-        assert(analysis_language(request, filename) == "C++");
+        assert(analysis_language(request, filename) == "AspectJ");
         assert(code_analysis(request) == false); 
 		
 	}
