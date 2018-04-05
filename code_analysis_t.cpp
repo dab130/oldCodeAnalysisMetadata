@@ -33,7 +33,7 @@ int main() {
 		
 	}
 	{
-		// Test case: option_filename
+		// Test case: option_filename 
 		// The filename can be given explicitly as the option_filename, and this supersedes any other way of determining the filename.
 		// This test will return the file type "C++" for option_filename over given_filename and entry_filename.
         analysis_request request;
@@ -91,8 +91,8 @@ int main() {
 		// The language is based on the file extension. The completed, provided function, get_language_from_filename(), is used for this.
 		// This is a pass test case that will return C++ from the given option_filename
 		analysis_request request;
-		request.given_filename  = "";
-        request.entry_filename  = "";
+		request.given_filename  = "testing.aj";
+        request.entry_filename  = "test.java";
         request.given_url       = "";
         request.option_filename = "test.cpp";
         request.option_url      = "";
