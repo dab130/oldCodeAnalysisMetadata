@@ -33,8 +33,8 @@ int main() {
 		
 	}
 	{
-		//Test case: option_filename
-		//The filename can be given explicitly as the option_filename, and this supersedes any other way of determining the filename.
+		// Test case: option_filename
+		// The filename can be given explicitly as the option_filename, and this supersedes any other way of determining the filename.
 		// This test will return the file type "C++" for option_filename over given_filename and entry_filename.
         analysis_request request;
         request.given_filename  = "tester.aj";
@@ -69,8 +69,8 @@ int main() {
         assert(code_analysis(request) == false);
 	}
 	{
-		//Test case: analysis_language
-		//The language can be explicitly given as an option (option_language) and this supersedes all other language settings
+		// Test case: analysis_language
+		// The language can be explicitly given as an option (option_language) and this supersedes all other language settings
 		analysis_request request;
 		request.given_filename  = "";
         request.entry_filename  = "";
@@ -86,9 +86,9 @@ int main() {
         assert(code_analysis(request) == false);
 	}
 	{
-		//Test case: analysis_language
-		//The language is based on the file extension. The completed, provided function, get_language_from_filename(), is used for this.
-		//This is a pass test case that will return C++ from the given option_filename
+		// Test case: analysis_language
+		// The language is based on the file extension. The completed, provided function, get_language_from_filename(), is used for this.
+		// This is a pass test case that will return C++ from the given option_filename
 		analysis_request request;
 		request.given_filename  = "";
         request.entry_filename  = "";
@@ -115,10 +115,10 @@ int main() {
         request.option_language = "";
 		
         auto filename = analysis_filename(request);
-        assert(filename == "");
+        assert(filename == "test.cpp");
         assert(analysis_url(request) == "");
-        assert(analysis_language(request, filename) == "");
-        assert(code_analysis(request) == false);
+        assert(analysis_language(request, filename) == "C++");
+        assert(code_analysis(request) == false); 
 		
 	}
 

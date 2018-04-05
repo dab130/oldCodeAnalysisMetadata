@@ -50,7 +50,10 @@ std::string analysis_filename(const analysis_request& request) {
 		return request.given_filename; 					// this will return a file on the disk. 
 														// if there isn't a stdin value and the data is not source code
 	}else if(request.entry_filename != ""){
-		return request.entry_filename; 					//if there isn't a stdin value and the data is source code
+		return request.entry_filename; 
+														//if there isn't a stdin value and the data is source code		
+	}else if(request.given_filename != ""){
+		return request.given_filename; 				
 		
 	}								   
 	return "";
@@ -77,8 +80,8 @@ std::string analysis_url(const analysis_request& request) {
 std::string analysis_language(const analysis_request& request, const std::string& filename) {
 	if(request.option_language != ""){
 			return request.option_language;
-	}if(request.option_filename != ""){
-		return get_language_from_filename(filename); //
+	}if(filename != ""){
+		return get_language_from_filename(filename); 
 	}
 	return ""; 
 }
