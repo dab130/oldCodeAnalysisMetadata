@@ -49,10 +49,10 @@ std::string analysis_filename(const analysis_request& request) {
 	}else if(request.entry_filename == "data"){
 		return request.given_filename; 					// this will return a file on the disk. 
 														// if there isn't a stdin value and the data is not source code
-	}else if(request.entry_filename != ""){
+	}else if(request.entry_filename != "" && request.option_language == ""){
 		return request.entry_filename; 
 														//if there isn't a stdin value and the data is source code		
-	}else if(request.given_filename != ""){
+	}else if(request.given_filename != "" && request.option_language == ""){
 		return request.given_filename; 				
 		
 	}								   

@@ -142,10 +142,7 @@ int main() {
 	}
 	{
 		//Test case: given_filename with a dash
-		//The given_filename is a single dash “-” when the input is from standard input. In this case, the option_filename 
-		//and entry_filename must be used. Note that the entry_filename is not valid (i.e, “data”) for a non source code archive,
-		//and the option_filename must be used. If the option_filename is blank (i.e., “”), then the resulting filename is blank,
-		//and the language is based on the option_language.
+		//The given_filename is a single dash “-” when the input is from standard input.
         analysis_request request;
         request.given_filename  = "-";
         request.entry_filename  = "";
@@ -163,10 +160,8 @@ int main() {
 	}
 	{
 		//Test case: given_filename with a dash as a non source code archive.
-		//The given_filename is a single dash “-” when the input is from standard input. In this case, the option_filename 
-		//and entry_filename must be used. Note that the entry_filename is not valid (i.e, “data”) for a non source code archive,
-		//and the option_filename must be used. If the option_filename is blank (i.e., “”), then the resulting filename is blank,
-		//and the language is based on the option_language.
+		//Note that the entry_filename is not valid (i.e, “data”) for a non source code archive,
+		//and the option_filename must be used. 
         analysis_request request;
         request.given_filename  = "-";
         request.entry_filename  = "data";
@@ -194,7 +189,7 @@ int main() {
         request.option_language = "C++";
 		
         auto filename = analysis_filename(request);
-        assert(filename == "test.java");
+        assert(filename == "");
         assert(analysis_url(request) == "");
         assert(analysis_language(request, filename) == "C++");
         assert(code_analysis(request) == false);
